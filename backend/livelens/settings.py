@@ -75,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-ROOT_URLCONF = "livelens.urls"
+ROOT_URLCONF = 'backend.livelens.urls'
 
 WSGI_APPLICATION = "livelens.wsgi.application"
 
