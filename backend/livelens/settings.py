@@ -75,8 +75,9 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'livelens.wsgi.application'
+ROOT_URLCONF = 'livelens.urls'
 
+WSGI_APPLICATION = 'livelens.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
