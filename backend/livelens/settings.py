@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-tdsh95koc)!+^^l^uidc&sw@7$n50240!7^kyu5j*d+2m88y!r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    'livelens-wsat.onrender.com',
+    'localhost',
+    '127.0.0.1'
+]
 
 
 # Application definition
