@@ -21,6 +21,8 @@ def dashboard_home(request):
     }
 
     return render(request, 'dashboard/home.html', context)
+def home(request):
+    return HttpResponse("LiveLens backend is running successfully")
 #step-8.10.1 new code
 def dashboard_stats(request):
     data = {
