@@ -1,8 +1,12 @@
 from django.shortcuts import render
+from django.http import HttpResponse,JsonResponse
 from django.http import JsonResponse
 from products.models import Product
 from offers.models import Offer
 from chat.models import Message
+
+def home(request):
+    return HttpResponse("LiveLens is running successfully")
 
 def dashboard_home(request):
     product_count = Product.objects.count()
@@ -21,8 +25,6 @@ def dashboard_home(request):
     }
 
     return render(request, 'dashboard/home.html', context)
-def home(request):
-    return HttpResponse("LiveLens backend is running successfully")
 #step-8.10.1 new code
 def dashboard_stats(request):
     data = {
