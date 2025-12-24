@@ -4,3 +4,4 @@ gunicorn
 asgiref
 sqlparse
 tzdata
+whitenoise
