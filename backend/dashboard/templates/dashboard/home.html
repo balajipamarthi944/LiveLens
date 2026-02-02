@@ -3,6 +3,13 @@
 <head>
     <title>LiveLens Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+    .chart-box{
+        width: 400px;
+        height: 300px;
+        margin: 20px auto;
+    }
+</style>
 </head>
 <body>
 
@@ -19,11 +26,13 @@
 <hr>
 
 <h3>Products vs Offers</h3>
-<canvas id="barChart" width="400" height="200"></canvas>
-
+<div class="chart-box">
+  <canvas id="barChart"></canvas>
+</div>
 <h3>Offers Status</h3>
-<canvas id="pieChart" width="400" height="200"></canvas>
-
+<div class="chart-box">
+  <canvas id="pieChart"></canvas>
+</div>
 <script>
     const barCtx = document.getElementById('barChart');
     new Chart(barCtx, {
@@ -33,7 +42,12 @@
             datasets: [{
                 label: 'Count',
                 data: [{{ product_count }}, {{ offer_count }}],
+                backgroundColor:['#4CAF50','#2196F3']
             }]
+        },
+        options:{
+            responsive: true,
+            maintainAspectRatio: false
         }
     });
 
@@ -44,19 +58,15 @@
             labels: ['Active Offers', 'Inactive Offers'],
             datasets: [{
                 data: [{{ active_offers }}, {{ inactive_offers }}],
+                backgroundColor:['#OOBCD4','#FF5722']
             }]
+        },
+        options:{
+            responsive: true,
+            maintainAspectRatio: false
         }
     });
-function loadStats(){
-    fetch('/dashboard/api/stats/').then(response => response.json()).then(data =>{
-        document.getElementById('products').innerText = data.products;
-        document.getElementById('offers').innerText = data.offers;
-        document.getElementById('messages').innerText = data.messages;
-    })
-    .catch(error => console.error('Error:',error));
-}
-loadStats()
-setInterval(loadStats,5000);
+
 </script>
 
 </body>
