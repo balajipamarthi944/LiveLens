@@ -1,4 +1,4 @@
-Django==6.0
+DjangoDjango==6.0
 djangorestframework
 gunicorn
 asgiref
